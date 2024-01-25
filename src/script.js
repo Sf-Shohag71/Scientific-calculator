@@ -4,7 +4,13 @@ const buttons = document.getElementsByClassName("btn");
 let currentValue = "";
 
 evaluateResult = () => {
-  const result = eval(currentValue);
+    // console.log("current value: ", currentValue);
+  const convertedValue = currentValue
+    .replace("×", "*")
+    .replace("÷", "/")
+    .replace("%", "*0.01");
+    // console.log("converted value", convertedValue);
+  const result = eval(convertedValue);
   currentValue = result.toString();
   console.log(currentValue);
   display.value = currentValue;
